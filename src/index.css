@@ -2,40 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* PDF Agent Design System - Professional Blue/Gray/White Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Background & Layout */
+    --background: 210 20% 96%;
+    --foreground: 222 47% 11%;
+    --surface: 0 0% 100%;
+    
+    /* Professional Blue Palette */
+    --primary: 217 91% 60%;
+    --primary-hover: 217 91% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary Gray Tones */
+    --secondary: 215 14% 89%;
+    --secondary-hover: 215 14% 84%;
+    --secondary-foreground: 222 47% 11%;
+    
+    /* Neutral System */
+    --muted: 215 14% 89%;
+    --muted-foreground: 215 13% 47%;
+    --accent: 215 14% 89%;
+    --accent-foreground: 222 47% 11%;
+    
+    /* Interactive Elements */
+    --border: 214 32% 91%;
+    --input: 0 0% 100%;
+    --input-border: 214 32% 91%;
+    --ring: 217 91% 60%;
+    
+    /* Status Colors */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    --card-foreground: 222 47% 11%;
+    --card-border: 214 32% 91%;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
+    --shadow: 0 1px 3px 0 hsl(222 47% 11% / 0.1), 0 1px 2px -1px hsl(222 47% 11% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.1), 0 2px 4px -2px hsl(222 47% 11% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.1), 0 4px 6px -4px hsl(222 47% 11% / 0.1);
+    
+    /* Layout */
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
@@ -100,6 +117,38 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* PDF Agent Component Styles */
+  .upload-area {
+    @apply border-2 border-dashed border-border rounded-lg p-8 text-center transition-all duration-200;
+    @apply hover:border-primary hover:bg-primary/5;
+  }
+  
+  .upload-area.drag-over {
+    @apply border-primary bg-primary/10;
+  }
+  
+  .file-status-uploading {
+    @apply text-warning;
+  }
+  
+  .file-status-processing {
+    @apply text-primary;
+  }
+  
+  .file-status-success {
+    @apply text-success;
+  }
+  
+  .file-status-error {
+    @apply text-destructive;
+  }
+  
+  .spinner {
+    @apply animate-spin rounded-full border-2 border-current border-t-transparent;
   }
 }
